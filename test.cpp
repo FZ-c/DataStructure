@@ -1,14 +1,25 @@
 ﻿#include <iostream>
-#include<set>
-#include<vector>
 #include"LinearList.h"
 
 using namespace std;
 
 int main()
 {
-	int num[10] = { 15,2,3,4,5 };
-	Array<int> a(num);
-	cout << a.length();
+	Array<int>num;
+	num[0] = 1;
+	for (int *p = num.begin(); p < num.end(); p++)
+		cout << *p << ' ';
+	cout << endl;
+	num.push_back(12);
+	for (int *p = num.begin(); p < num.end(); p++)
+		cout << *p << ' ';
+	cout << endl;
+	num.push_back(121);
+	num.push_back(120);
+	num.push_back(113);
+	num.push_back(119);
+	for (int *p = num.begin(); p < num.end(); p++)
+		cout << *p << ' ';
+	cout << endl;
 	return 0;
 }
