@@ -6,10 +6,10 @@
 */
 #pragma once
 template<class Type>
-
 class Array
 {
 private:
+
 	//线性表大小
 	size_t Array_size = 0;
 
@@ -30,7 +30,17 @@ public:
 
 	//构造函数
 
-	//未完成：参数为数组的构造
+	///TODO: 参数为数组的构造
+	explicit Array(Type* arr,int len)
+	{
+		Arr = (Type*)realloc(Arr, len);
+		
+		for (int i = 0; i < len; i++)
+			Arr[i] = arr[i];
+//		memcpy(Arr, arr, len);
+		Array_size = len;
+		Array_len = Array_size;
+	}
 
 	//默认构造函数：线性表长度为1
 	explicit Array()
@@ -179,10 +189,8 @@ public:
 		if (pos > Array_size)
 		{
 			Arr = (Type*)realloc(Arr, sizeof(Type)*(pos + 1));
-			memset(Arr + Array_size, 0, sizeof(Type)*(pos + 1));
+			memset(Arr + Array_size, 0, sizeof(Type) * (pos + 1 - Array_size));
 		}
-		if (pos >= Array_len)
-			Array_len = pos + 1;
 		return Arr[pos];
 	}
 
@@ -199,3 +207,4 @@ public:
 
 
 };
+

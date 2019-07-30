@@ -1,14 +1,17 @@
 ﻿#include <iostream>
 #include<vector>
+#include<iterator>
 #include"LinearList.h"
 
 using namespace std;
 
 int main()
 {
-	Array<int>num, xx;
+	
+	int inf[10] = { 1,2,3,4,5 };
+	Array<int>num, xx(inf, 5);
 	num[0] = 1;
-	for (int *p = num.begin(); p < num.end(); p++)
+	for (int *p = xx.begin(); p < xx.end(); p++)
 		cout << *p << ' ';
 	cout << endl;
 	num.push_back(12);
@@ -27,12 +30,21 @@ int main()
 		cout << *p << ' ';
 	xx = num;
 
+
 	cout << xx.length() << endl;
+	cout << xx.size() << endl;
+
 	for (int *p = xx.begin(); p < xx.end(); p++)
 		cout << *p << ' ';
-	num.clear();
-	xx = num;
+	cout << xx[4] << endl;
 	cout << xx.length() << endl;
+	cout << xx[100] << endl;
+
+	for (int* p = xx.begin(); p < xx.end(); p++)
+		cout << *p << ' ';
 	cout << endl;
+
+	cout << xx.length() << endl;
+	cout << xx.size() << endl;
 	return 0;
 }
