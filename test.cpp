@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int main()
+int ArrayTest()
 {
 	
 	int inf[10] = { 1,2,3,4,5 };
@@ -46,5 +46,11 @@ int main()
 
 	cout << xx.length() << endl;
 	cout << xx.size() << endl;
+	return 0;
+}
+
+int main()
+{
+	ArrayTest();
 	return 0;
 }

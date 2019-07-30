@@ -30,7 +30,7 @@ public:
 
 	//构造函数
 
-	///TODO: 参数为数组的构造
+	//以数组为参数的构造函数：复制数组
 	explicit Array(Type* arr,int len)
 	{
 		Arr = (Type*)realloc(Arr, len);
