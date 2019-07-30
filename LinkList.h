@@ -7,15 +7,42 @@
 #pragma once
 
 template<class Type>
-class Linklist
+class LinkNode
 {
 private:
 
-	//链表大小
-	size_t List_size = 0;
+	//结点内容
+	Type content;
+
+	//结点的前后结点
+	Type* front = nullptr, * next = nullptr;
+
+public:
+
+	//构造方法
+
+	//默认构造方法
+	explicit LinkNode()
+	{
+		content = 0;
+	}
+
+	//以结点内容及其前后结点指针为参数的构造方法
+	explicit LinkNode(const Type& content = Type(), const Type* front = nullptr, const Type* next = nullptr)
+	{
+		this->content = content;
+		this->front = front;
+		this->next = next;
+	}
+};
+
+template<class Type>
+class LinkList
+{
+private:
 
 	//链表首尾指针
-	Type* List_head = NULL, List_tail = NULL;
+	LinkNode<Type>* List_head = nullptr, List_tail = nullptr;
 
 	//删除范围内的元素
 	///TODO: 完成迭代器后再编写 编写后设置为public
@@ -27,7 +54,7 @@ private:
 
 public:
 	//链表首地址
-	Type* List;
+	LinkNode<Type>* List;
 	//链表元素个数
 	size_t List_len;
 
@@ -35,16 +62,23 @@ public:
 	//构造函数
 
 	///TODO: 参数为数组的构造
-	explicit Linklist(Type* arr, int len)
-	{}
+	explicit LinkList(Type* arr, int len)
+	{
+
+	}
 
 	//默认构造函数：线性表长度为1
-	explicit Linklist()
-	{}
+	explicit LinkList()
+	{
+		List = new LinkNode<int>();
+		List_head = List_tail = List;
+	}
 
 	//以长度为参数的构造函数：线性表长度为参数值
-	explicit Linklist(size_t arr_len)
-	{}
+	explicit LinkList(size_t arr_len)
+	{
+
+	}
 
 
 
@@ -53,19 +87,13 @@ public:
 	//返回链表元素个数
 	size_t length() const
 	{
-		return Array_len;
+		return List_len;
 	}
 
-	//返回链表大小
-	size_t size() const
-	{
-		return Array_size;
-	}
-
-	//返回链表首地址
+	//返回链表头结点地址
 	Type* begin() const
 	{
-		return Arr;
+		return List;
 	}
 
 	//返回链表最后一个元素的下一个地址
