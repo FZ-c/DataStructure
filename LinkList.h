@@ -62,24 +62,21 @@ public:
 	//构造函数
 
 	///TODO: 参数为数组的构造
-	explicit LinkList(Type* arr, int len)
+	explicit LinkList(Type* arr, int len): List_len(len)
 	{
-
 	}
 
 	//默认构造函数：线性表长度为1
-	explicit LinkList()
+	explicit LinkList(): List_len(0)
 	{
 		List = new LinkNode<int>();
 		List_head = List_tail = List;
 	}
 
 	//以长度为参数的构造函数：线性表长度为参数值
-	explicit LinkList(size_t arr_len)
+	explicit LinkList(size_t arr_len) : List_len(arr_len)
 	{
-
 	}
-
 
 
 	//成员函数
